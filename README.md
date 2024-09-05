@@ -1,4 +1,6 @@
-# jplag-example
+# v4.3.0
+
+## jplag-example
 [jplag-doc](https://github.com/jplag/JPlag?tab=readme-ov-file)
 
 1) Launch app:
