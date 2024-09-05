@@ -3,7 +3,7 @@ package com.epam.autocode;
 import de.jplag.JPlag;
 import de.jplag.JPlagResult;
 import de.jplag.exceptions.ExitException;
-import de.jplag.java.JavaLanguage;
+import de.jplag.java.Language;
 import de.jplag.options.JPlagOptions;
 import de.jplag.reporting.reportobject.ReportObjectFactory;
 
@@ -22,7 +22,7 @@ public class JPlagService {
         Set<File> submissionDirectories;
         JPlagResult result = null;
 
-        var language = new JavaLanguage();
+        var language = new Language();
         var rootPath = Paths.get("C:\\EPAM_MY\\jplag\\jplag-example\\work");
         var sub = rootPath.resolve("submissions");
 
@@ -30,12 +30,13 @@ public class JPlagService {
             submissionDirectories = stream.map(Path::toFile).collect(Collectors.toSet());
             var baseCode = Paths.get("C:\\EPAM_MY\\jplag\\jplag-example\\src\\main\\java\\com\\epam\\autocode\\base");
             var options = new JPlagOptions(language, submissionDirectories, Set.of()).withBaseCodeSubmissionDirectory(baseCode.toFile()).withMinimumTokenMatch(5);
+            JPlag jPlag = new JPlag(options);
 
-            result = JPlag.run(options);
+            result = jPlag.run();
 
-            var output = Paths.get("output.zip").toFile();
-            var reportObjectFactory = new ReportObjectFactory(output);
-            reportObjectFactory.createAndSaveReport(result);
+            var output = Paths.get("output");
+            var reportObjectFactory = new ReportObjectFactory();
+            reportObjectFactory.createAndSaveReport(result, output.toString());
         } catch (IOException | ExitException e) {
             throw new RuntimeException("Error while reading submission directories", e);
         }

@@ -1,0 +1,41 @@
+{
+    "jplag_version":{
+    "major":4,
+    "minor":3,
+    "patch":0
+    },
+    "submission_folder_path":[
+        "C:\\EPAM_MY\\jplag\\jplag-example\\work\\submissions\\11","C:\\EPAM_MY\\jplag\\jplag-example\\work\\submissions\\22"
+        ],
+    "base_code_folder_path":"base",
+    "language":"Javac based AST plugin",
+    "file_extensions":[".java",".JAVA"],
+    "submission_id_to_display_name":{
+        "22_Base2.java":"22\\Base2.java",
+        "11_Base1.java":"11\\Base1.java"
+    },
+    "submission_ids_to_comparison_file_name":{
+        "22_Base2.java":{
+            "11_Base1.java":"11_Base1.java-22_Base2.java.json"
+        },
+        "11_Base1.java":{
+            "22_Base2.java":"11_Base1.java-22_Base2.java.json"
+        }
+    },
+    "failed_submission_names":[],
+    "excluded_files":[],
+    "match_sensitivity":5,
+    "date_of_execution":"05/09/24",
+    "execution_time":18,
+    "metrics":[{
+        "name":"AVG",
+        "distribution":[1,0,0,0,0,0,0,0,0,0],
+        "topComparisons":[{
+            "first_submission":"11_Base1.java",
+            "second_submission":"22_Base2.java",
+            "similarity":1.0
+        }],
+    "description":"Average of both program coverages. This is the default similarity which works in most cases: Matches with a high average similarity indicate that the programs work in a very similar way."},{"name":"MAX","distribution":[1,0,0,0,0,0,0,0,0,0],"topComparisons":[{"first_submission":"11_Base1.java","second_submission":"22_Base2.java","similarity":1.0}],"description":"Maximum of both program coverages. This ranking is especially useful if the programs are very different in size. This can happen when dead code was inserted to disguise the origin of the plagiarized program."}],
+    "clusters":[],
+    "total_comparisons":1
+}
